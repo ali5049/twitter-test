@@ -16,8 +16,12 @@ export const styles = StyleSheet.create({
     borderRadius: hp(20),
     marginRight: hp(10),
   },
+  nameContainer: {
+    flexDirection: 'row',
+  },
   name: {
     fontWeight: '700',
+    width: wp(235),
   },
   company: {
     color: '#808080',

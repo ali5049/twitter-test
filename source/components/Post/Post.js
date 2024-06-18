@@ -7,6 +7,7 @@ import {BLACK, RED} from '../../constants/colors';
 import {usePost} from '../../hooks/usePost';
 import {wp} from '../../utils/reponsiveSizes';
 import {styles} from './Post.styles';
+import {getDuration} from '../../utils/helpers';
 
 const Post = ({post}) => {
   const {liked, likePost, unlikePost} = usePost();
@@ -17,10 +18,14 @@ const Post = ({post}) => {
         source={{uri: post?.user?.profile_image_url}}
       />
       <View>
-        <P customStyles={styles.name}>
-          {post?.user?.first_name + ' ' + post?.user?.last_name}{' '}
-          <P customStyles={styles.company}>@{post?.user?.company_name}</P>
-        </P>
+        <View style={styles.nameContainer}>
+          <P customStyles={styles.name} numLines={1}>
+            {post?.user?.first_name + ' ' + post?.user?.last_name}{' '}
+            <P customStyles={styles.company}>@{post?.user?.company_name}</P>
+          </P>
+          <P>{getDuration(post?.created_at)}</P>
+        </View>
+
         <P customStyles={styles.content}>{post.text}</P>
         <View style={styles.bottomContainer}>
           <TouchableOpacity style={styles.countContainer}>
