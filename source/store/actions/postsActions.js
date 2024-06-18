@@ -45,6 +45,7 @@ export const refreshPostsAction = createAsyncThunk(
 export const likePostAction = createAsyncThunk(
   'post/like',
   async (payload, {rejectWithValue}) => {
+    console.log('responseedsfdf', payload);
     try {
       const response = await axiosInstance({
         method: 'POST',
@@ -52,8 +53,10 @@ export const likePostAction = createAsyncThunk(
         data: payload,
       });
 
+      console.log('responseedfdsdafv', response);
+
       if (response?.status === 200) {
-        return response?.data?.data;
+        return response?.data;
       } else {
         return rejectWithValue(response.data);
       }
@@ -74,7 +77,7 @@ export const unlikePostAction = createAsyncThunk(
       });
 
       if (response?.status === 200) {
-        return response?.data?.data;
+        return response?.data;
       } else {
         return rejectWithValue(response.data);
       }
