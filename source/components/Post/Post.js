@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {P} from '..';
 import {BLACK, RED} from '../../constants/colors';
 import {usePost} from '../../hooks/usePost';
+import {getDuration} from '../../utils/helpers';
 import {wp} from '../../utils/reponsiveSizes';
 import {styles} from './Post.styles';
-import {getDuration} from '../../utils/helpers';
 
 const Post = ({post}) => {
   const {liked, likePost, unlikePost} = usePost();
